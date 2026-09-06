@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #020b14;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #020b14;
+  color: #f8fafc;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+button,
+select,
+input {
+  font: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020b14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #173247;
+  border-radius: 10px;
+}
+/* =========================================
+   SHIP ROUTE ANIMATION
+   ========================================= */
+
+.ship-marker {
+  position: absolute;
+
+  /*
+    These coordinates follow the SVG route.
+    The animation moves through several points
+    along the dotted path.
+  */
+
+  left: 12%;
+  top: 70%;
+
+  width: 44px;
+  height: 44px;
+
+  z-index: 20;
+
+  animation: vesselJourney 12s ease-in-out infinite;
+
+  transform: translate(-50%, -50%);
+}
+
+
+/* Ship movement */
+
+@keyframes vesselJourney {
+
+  /* Singapore */
+  0% {
+    left: 12%;
+    top: 70%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+  }
+
+
+  /* Leaving Singapore */
+  12% {
+    left: 21%;
+    top: 64%;
+    transform: translate(-50%, -50%) rotate(-8deg);
+  }
+
+
+  /* Middle-left */
+  28% {
+    left: 34%;
+    top: 62%;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+
+  /* Beginning of curve */
+  45% {
+    left: 48%;
+    top: 52%;
+    transform: translate(-50%, -50%) rotate(-25deg);
+  }
+
+
+  /* Main curve */
+  60% {
+    left: 59%;
+    top: 38%;
+    transform: translate(-50%, -50%) rotate(-35deg);
+  }
+
+
+  /* Near destination */
+  76% {
+    left: 71%;
+    top: 25%;
+    transform: translate(-50%, -50%) rotate(-25deg);
+  }
+
+
+  /* Visakhapatnam */
+  90% {
+    left: 84%;
+    top: 18%;
+    transform: translate(-50%, -50%) rotate(-5deg);
+  }
+
+
+  /* Hold at destination */
+  100% {
+    left: 84%;
+    top: 18%;
+    transform: translate(-50%, -50%) rotate(-5deg);
+  }
+
+}
+/* =========================================
+   CARGO SHIP
+========================================= */
+
+.cargo-ship {
+  position: relative;
+  transform-origin: center center;
+  pointer-events: none;
+}
+
+
+/* Subtle floating motion */
+
+.cargo-ship-moving {
+  animation: shipFloat 2.8s ease-in-out infinite;
+}
+
+
+@keyframes shipFloat {
+
+  0% {
+    transform: translateY(0px) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateY(-5px) rotate(1deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(-1deg);
+  }
+
+}
