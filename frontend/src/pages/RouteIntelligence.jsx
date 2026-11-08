@@ -1,3 +1,4 @@
+import { API_URL } from "../config/api";
 import { useEffect, useRef, useState } from "react";
 
 import {
@@ -19,9 +20,6 @@ import {
 } from "lucide-react";
 
 import CargoShip from "../components/CargoShip";
-
-
-const API_URL = "http://127.0.0.1:8000";
 
 
 const ROUTE_PATH =

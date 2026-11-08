@@ -1,3 +1,5 @@
+import os
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import Base, engine
@@ -68,17 +70,23 @@ app = FastAPI(
 # CORS
 # =========================================================
 
+# Read allowed browser origins from the deployment environment.
+# Set CORS_ORIGINS in Vercel to a comma-separated list, for example:
+# https://aout-freight.vercel.app,http://localhost:5173
+cors_origins = [
+    origin.strip().rstrip("/")
+    for origin in os.getenv(
+        "CORS_ORIGINS",
+        "http://localhost:5173,https://aout-freight.vercel.app",
+    ).split(",")
+    if origin.strip()
+]
+
 app.add_middleware(
     CORSMiddleware,
-
-    allow_origins=[
-        "http://localhost:5173",
-    ],
-
+    allow_origins=cors_origins,
     allow_credentials=True,
-
     allow_methods=["*"],
-
     allow_headers=["*"],
 )
 

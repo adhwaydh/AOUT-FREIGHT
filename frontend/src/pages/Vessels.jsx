@@ -1,3 +1,4 @@
+import { API_URL } from "../config/api";
 import { useMemo, useState } from "react"
 import {
   Activity,
@@ -14,8 +15,6 @@ import {
   Target,
   Weight,
 } from "lucide-react"
-
-const API_URL = "http://127.0.0.1:8000"
 
 function VesselOptimization() {
   const [form, setForm] = useState({
