@@ -2,6 +2,7 @@ services:
   - type: web
     name: aout-freight-api
     runtime: python
+    plan: free
     rootDir: backend
     region: singapore
     buildCommand: pip install -r requirements.txt
