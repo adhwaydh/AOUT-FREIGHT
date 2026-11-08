@@ -15,8 +15,16 @@ dependencies = [
   "pandas",
   "scikit-learn",
   "xgboost",
-  "torch==2.12.1",
+  "torch==2.12.1+cpu",
 ]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
 
 [tool.vercel]
 entrypoint = "app.main:app"
