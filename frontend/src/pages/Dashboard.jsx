@@ -1,3 +1,4 @@
+import { API_URL } from "../config/api";
 import { useEffect, useState } from "react";
 
 import {
@@ -16,9 +17,6 @@ import PortCongestion from "../components/dashboard/PortCongestion";
 import RiskOverview from "../components/dashboard/RiskOverview";
 import RecentActivity from "../components/dashboard/RecentActivity";
 import AIRecommendation from "../components/dashboard/AIRecommendation";
-
-
-const API_URL = "http://127.0.0.1:8000";
 
 
 function Dashboard() {
