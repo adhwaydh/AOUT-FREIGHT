@@ -11,9 +11,15 @@ from app.ml.models.ml import (
     MLForecast,
 )
 
-from app.ml.transx_prediction_service import (
-    transx_service,
-)
+from functools import lru_cache
+
+
+@lru_cache(maxsize=1)
+def get_transx_service():
+    """Load the large TransX model only when an ML endpoint needs it."""
+    from app.ml.transx_prediction_service import TransXPredictionService
+
+    return TransXPredictionService()
 
 router = APIRouter(
     prefix="/api/ml",
@@ -78,7 +84,7 @@ def ml_status():
         "model": "TransX",
         "model_version": "production",
         "available_routes": (
-            transx_service.get_available_routes()
+            get_transx_service().get_available_routes()
         ),
     }
 
@@ -180,6 +186,8 @@ def generate_ml_forecast(request: MLForecastRequest):
         # --------------------------------------------------
         # Select benchmark route automatically
         # --------------------------------------------------
+
+        transx_service = get_transx_service()
 
         benchmark = transx_service.select_benchmark_route(
             request.cargo_quantity
