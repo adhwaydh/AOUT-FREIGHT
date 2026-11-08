@@ -1,3 +1,4 @@
+import { API_URL } from "../config/api";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -8,8 +9,6 @@ import {
   Eye,
   EyeOff,
 } from "lucide-react";
-
-const API_URL = "http://127.0.0.1:8000";
 
 function Login() {
   const navigate = useNavigate();
