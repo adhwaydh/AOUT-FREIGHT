@@ -8,6 +8,7 @@ python-jose[cryptography]
 joblib
 numpy
 pandas
-torch
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.12.1+cpu
 scikit-learn
 xgboost
