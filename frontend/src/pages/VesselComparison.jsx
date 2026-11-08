@@ -1,3 +1,4 @@
+import { API_URL } from "../config/api";
 import { useEffect, useMemo, useState } from "react"
 import {
   Activity,
@@ -12,8 +13,6 @@ import {
   TrendingDown,
   TrendingUp,
 } from "lucide-react"
-
-const API_BASE_URL = "http://127.0.0.1:8000"
 
 function VesselComparison() {
   const [vessels, setVessels] = useState([])
@@ -38,7 +37,7 @@ function VesselComparison() {
         setError("")
 
         const response = await fetch(
-          `${API_BASE_URL}/api/vessel-comparison/available`
+          `${API_URL}/api/vessel-comparison/available`
         )
 
         if (!response.ok) {
@@ -168,7 +167,7 @@ function VesselComparison() {
       setError("")
 
       const response = await fetch(
-        `${API_BASE_URL}/api/vessel-comparison/compare`,
+        `${API_URL}/api/vessel-comparison/compare`,
         {
           method: "POST",
 
