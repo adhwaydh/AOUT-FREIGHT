@@ -16,10 +16,10 @@ from functools import lru_cache
 
 @lru_cache(maxsize=1)
 def get_transx_service():
-    """Load the large TransX model only when an ML endpoint needs it."""
-    from app.ml.transx_prediction_service import TransXPredictionService
+    """Load the TransX singleton only when an ML endpoint needs it."""
+    from app.ml.transx_prediction_service import transx_service
 
-    return TransXPredictionService()
+    return transx_service
 
 router = APIRouter(
     prefix="/api/ml",
