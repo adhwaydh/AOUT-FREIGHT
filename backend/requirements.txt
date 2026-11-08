@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+python-dotenv
+email-validator
+python-jose[cryptography]
+joblib
+numpy
+pandas
+torch
