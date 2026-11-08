@@ -4,10 +4,15 @@ from datetime import datetime, timedelta, timezone
 from jose import jwt
 
 
-SECRET_KEY = os.getenv(
-    "JWT_SECRET_KEY",
-    "CHANGE_THIS_DEVELOPMENT_SECRET",
-)
+SECRET_KEY = os.getenv("JWT_SECRET_KEY")
+
+if not SECRET_KEY and os.getenv("VERCEL") == "1":
+    raise RuntimeError(
+        "JWT_SECRET_KEY must be configured in Vercel Environment Variables."
+    )
+
+# Local-only fallback; production deployments must set JWT_SECRET_KEY.
+SECRET_KEY = SECRET_KEY or "CHANGE_THIS_DEVELOPMENT_SECRET"
 
 ALGORITHM = "HS256"
 
