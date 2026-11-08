@@ -87,7 +87,7 @@ app.add_middleware(
     allow_origins=cors_origins,
     # Allow Vercel preview deployments for this frontend project.
     # Keep this scoped to the aout-freight project and its Vercel team.
-    allow_origin_regex=r"https://aout-freight-[a-z0-9-]+-aout1\\.vercel\\.app",
+    allow_origin_regex=r"https://aout-freight-[a-z0-9-]+-aout1\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
