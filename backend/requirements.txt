@@ -9,3 +9,5 @@ joblib
 numpy
 pandas
 torch
+scikit-learn
+xgboost
