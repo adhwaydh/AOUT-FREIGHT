@@ -1,2 +1,22 @@
+[project]
+name = "aout-freight-api"
+version = "1.0.0"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "fastapi",
+  "uvicorn[standard]",
+  "sqlalchemy",
+  "psycopg2-binary",
+  "python-dotenv",
+  "email-validator",
+  "python-jose[cryptography]",
+  "joblib",
+  "numpy",
+  "pandas",
+  "scikit-learn",
+  "xgboost",
+  "torch==2.12.1",
+]
+
 [tool.vercel]
 entrypoint = "app.main:app"
