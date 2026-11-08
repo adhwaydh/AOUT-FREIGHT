@@ -1,3 +1,4 @@
+import { API_URL } from "../config/api";
 import { useMemo, useState } from "react"
 import {
   Anchor,
@@ -60,7 +61,7 @@ function Chartering() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/api/chartering/recommend",
+        `${API_URL}/api/chartering/recommend`,
         {
           method: "POST",
 
